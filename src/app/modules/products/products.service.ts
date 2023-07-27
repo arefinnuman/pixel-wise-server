@@ -82,7 +82,7 @@ const getCategoriesName = async () => {
   return result;
 };
 
-//  get 
+//  get
 
 export const ProductService = {
   createProduct,
