@@ -11,6 +11,10 @@ router.get('/categories', ProductController.getCategoriesName);
 
 router.get('/', ProductController.getAllProducts);
 
-router.get('/:id', ProductController.getProductById);
+router.get('/all-products', ProductController.getAllProducts);
+
+router.get('/all-products/:id', ProductController.getProductById);
+
+router.get('/:category', ProductController.getProductByCategory);
 
 export const ProductRoutes = router;

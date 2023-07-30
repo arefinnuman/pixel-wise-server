@@ -76,13 +76,15 @@ const getRandomProducts = async () => {
   return result;
 };
 
-// get only category names
 const getCategoriesName = async () => {
   const result = await Product.find().distinct('category');
   return result;
 };
 
-//  get
+const getProductByCategory = async (category: string) => {
+  const products = await Product.find({ category });
+  return products;
+};
 
 export const ProductService = {
   createProduct,
@@ -90,4 +92,5 @@ export const ProductService = {
   getProductById,
   getRandomProducts,
   getCategoriesName,
+  getProductByCategory,
 };

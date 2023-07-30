@@ -75,10 +75,24 @@ const getCategoriesName: RequestHandler = catchAsync(
   },
 );
 
+const getProductByCategory: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { category } = req.params;
+    const result = await ProductService.getProductByCategory(category);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: `products fetched successfully`,
+      data: result,
+    });
+  },
+);
+
 export const ProductController = {
   createProduct,
   getAllProducts,
   getProductById,
   getRandomProducts,
   getCategoriesName,
+  getProductByCategory,
 };
